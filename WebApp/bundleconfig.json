@@ -1,0 +1,17 @@
+[
+  {
+    "outputFileName": "wwwroot/js/bundle.js",
+    "inputFiles": [
+      "wwwroot/js/JavaScript1.js",
+      "wwwroot/js/JavaScript2.js",
+      "wwwroot/js/JavaScript3.js"
+    ]
+  }
+  //{
+  //  "outputFileName": "wwwroot/css/bundlecss.css",
+  //  "inputFiles": [
+  //    "wwwroot/css/site1.js",
+  //    "wwwroot/css/site2.js"
+  //  ]
+  //}
+]
