@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Models.ProductModel>
+﻿@using Models
+@model IEnumerable<Models.ProductModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -11,6 +12,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                <input type="checkbox" name="checkAll" /> All
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Id)
             </th>
@@ -30,9 +34,12 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (ProductModel item in Model)
         {
             <tr>
+                <td>
+                    <input type="checkbox" value="@item.Id" name="ProductCheck" />
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
@@ -56,3 +63,28 @@
         }
     </tbody>
 </table>
+
+<script>
+    $(function () {
+        $("[name='checkAll']").click(function () {
+            var isChecked = $(this).prop('checked');
+            if (isChecked) {
+                $("[name='ProductCheck']").prop('checked', true);
+            }
+            else {
+                $("[name='ProductCheck']").prop('checked', false);
+            }
+        });
+
+        $("[name='ProductCheck']").click(function () {
+            debugger;
+            var total = $("[name='ProductCheck']").length;
+            var totalChecked = $("[name='ProductCheck']:checked").length;
+            if (total == totalChecked) {
+                $("[name='checkAll']").prop('checked', true);
+            } else {
+                $("[name='checkAll']").prop('checked', false);
+            }
+        });
+    });
+</script>
